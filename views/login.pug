@@ -1,0 +1,21 @@
+doctype html
+html
+  head
+    title Pug
+    link(rel='stylesheet' href='main.css')
+    include _basic
+  body
+    .login-card
+      .card-header
+        h1 Login
+      .card-body
+        form.form-login
+          .form-group
+            label(for='username') Email
+            input#username(type='text' name='username' required='')
+          .form-group
+            label(for='password') Password
+            input#password(type='password' name='password' required='')
+          .form-group
+            button.login-button(type='submit') Login
+    script(src='js/bundle.js' type="module")

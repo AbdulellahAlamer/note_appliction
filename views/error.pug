@@ -1,0 +1,10 @@
+doctype html
+html
+  head
+    title #{data.title}
+    link(rel='stylesheet' href='main.css')
+  body
+    h1.err Erorr
+    h3 #{data.msg}
+    #{data.msg == "jwt expired" ? "a herf='http://127.0.0.1:1234'" : "try again"}
+    script(src='js/bundle.js' type="module")

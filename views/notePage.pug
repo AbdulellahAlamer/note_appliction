@@ -1,0 +1,62 @@
+doctype html
+html
+  head
+    //- script(src='js/script.js')
+    meta(charset='utf-8')
+    include _basic
+    title Notes App
+    link(rel='stylesheet' href='style.css')
+    meta(name='viewport' content='width=device-width, initial-scale=1.0')
+    // Iconscout Link For Icons
+    link(rel='stylesheet' href='https://unicons.iconscout.com/release/v4.0.0/css/line.css')
+  body
+    include _header
+    div.popup-box
+      div.popup
+        div.content
+          header
+            p
+            i.uil.uil-times
+          form(action='#')
+            .row.title
+              label Title
+              input(type='text' spellcheck='false')
+            .row.description
+              label Description
+              textarea(spellcheck='false')
+            button
+    .wrapper
+      li.add-box
+        .icon
+          i.uil.uil-plus
+        p Add new note
+
+      each i in notes
+          li.note
+            div.details
+              p= i.note
+              span= i.noteDescription
+            div.bottom-content
+              -let timeArray = i.createAt.toString().split(":");
+              span=timeArray[0] +":" + timeArray[1]
+              div.settings
+                i.uil.uil-ellipsis-h(onclick="showMenu(this)")
+                  ul.menu
+                    li
+                      i.uil.uil-pen
+                      | Edit
+                    li.dele(data-id=i._id onclick=`deleteNote(this)`)
+                      i.uil.uil-trash
+                      | Delete
+      //- +addCard(notes)
+      //- - document.querySelector(".add-box").insertAdjacentHTML("afterend", liTag);
+script(src='js/script.js')
+
+
+//- <div class="settings">
+//-     <i onclick="showMenu(this)" class="uil uil-ellipsis-h"></i>
+//-     <ul class="menu">
+//-         <li onclick="updateNote(${id}, '${note.title}', '${filterDesc}')"><i class="uil uil-pen"></i>Edit</li>
+//-         <li onclick="deleteNote(${id})"><i class="uil uil-trash"></i>Delete</li>
+//-     </ul>
+//- </div>
