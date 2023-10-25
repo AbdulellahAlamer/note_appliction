@@ -7,6 +7,7 @@ const DB = process.env.DATABASE.replace(
   "<password>",
   process.env.DATABASE_PASSWORD
 );
+
 // handle the exception Error golbly and exit the app
 // we put this catch error in the top to lisent to any error
 process.on("uncaughtException", (err) => {
@@ -15,8 +16,10 @@ process.on("uncaughtException", (err) => {
   process.exit(1);
 });
 
+// connecting with the database
 mongoose.connect(DB).then(() => console.log("DB connection successful!"));
 
+// start listening
 const server = app.listen(process.env.PORT, () => {
   console.log("listening.. port :", process.env.PORT);
 });

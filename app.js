@@ -23,17 +23,19 @@ app.use(express.urlencoded({ extended: true, limit: "10kb" }));
 
 app.use(cookieParser());
 
+// these are the Routes:
 app.use("/api/v1/users", UsersRoute);
 app.use("/api/v1/notes", notesRoute);
 app.use("/", ViewRoute);
 
-app.use((req, res, next) => {
-  req.requestTime = new Date().toISOString();
-  // console.log("checking for cookies");
-  // console.log(req.cookies);
-  next();
-});
+// app.use((req, res, next) => {
+//   req.requestTime = new Date().toISOString();
+//   // console.log("checking for cookies");
+//   // console.log(req.cookies);
+//   next();
+// });
 
+// this will run if any error happens
 app.all("*", (req, res, next) => {
   next(new AppError(`Can't find ${req.originalUrl} on this server!`, 404));
 });

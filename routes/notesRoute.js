@@ -5,7 +5,7 @@ const authController = require("../controllers/authController");
 
 router.use(authController.protect);
 router.get("/", notesContrlloer.getAll);
-// build a new route for editing the note >>>>
+// Task >> build a new route for editing the note >>>>
 
 router.delete("/:id", notesContrlloer.deleteOne);
 

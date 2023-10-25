@@ -4,6 +4,7 @@ const authController = require("./authController");
 exports.loginPage = async (req, res, next) => {
   res.status(200).render("login");
 };
+// Task >> build a functoin for the admin page
 exports.homePage = async (req, res, next) => {
   // working with admin apge
   // if (req.user.role == "admin") {
